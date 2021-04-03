@@ -6,8 +6,12 @@ import (
 )
 
 func main() {
+	//Fetching data from departments.
 	bdepts := u.ReadAll("data/dept.data")
 	ldepts := u.ReadLines(bdepts)
 	depMap := u.GetUniqueDepartments(ldepts)
-	fmt.Println(depMap)
+	//Fetching data from Emp File.
+	edepts := u.ReadAll("data/emp.data")
+	empStruct := u.GenerateEmployeeMemoryData(edepts)
+
 }
