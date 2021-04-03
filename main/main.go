@@ -1,10 +1,12 @@
 package main
 
 import (
-	r "filereader/utils"
+	u "filereader/utils"
+	"fmt"
 )
 
 func main() {
-	con := r.ReadAll("data/emp.data")
-	r.GetDepartment(con)
+	bdepts := u.ReadAll("data/dept.data")
+	ldepts := u.ReadLines(bdepts)
+
 }
