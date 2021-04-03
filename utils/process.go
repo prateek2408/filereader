@@ -9,7 +9,6 @@ type Edata struct {
 	ID       string
 	Name     string
 	Salary   string
-	Dept     int
 	DeptName string
 }
 
@@ -30,7 +29,6 @@ func fillStruct(d []byte, dm map[int]string) Edata {
 	data.Name = raw_data[1]
 	data.Salary = raw_data[2]
 	di, _ := strconv.Atoi(raw_data[3])
-	data.Dept = di
 	data.DeptName = dm[di]
 	return data
 }

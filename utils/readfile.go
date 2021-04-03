@@ -17,9 +17,12 @@ func ReadLines(c []byte) []string {
 	line := ""
 	lines := make([]string, 0)
 	for _, char := range c {
-		line += string(c)
 		if string(char) == "\n" {
+			log.Printf("%s\n", line)
 			lines = append(lines, line)
+			line = ""
+		} else {
+			line += string(c)
 		}
 	}
 	return lines
