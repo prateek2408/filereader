@@ -12,6 +12,6 @@ func main() {
 	depMap := u.GetUniqueDepartments(ldepts)
 	//Fetching data from Emp File.
 	edepts := u.ReadAll("data/emp.data")
-	empStruct := u.GenerateEmployeeMemoryData(edepts)
-
+	empStruct := u.GenerateEmployeeMemoryData(edepts, depMap)
+	fmt.Println(empStruct)
 }

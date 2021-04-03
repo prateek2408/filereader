@@ -23,23 +23,28 @@ func GetUniqueDepartments(d []string) map[int]string {
 	return depMap
 }
 
-func fillStruct(d []byte) Edata {
+func fillStruct(d []byte, dm map[int]string) Edata {
 	var data Edata
-	raw_data = strings.Split(string(d), ",")
-	data.
+	raw_data := strings.Split(string(d), ",")
+	data.ID = raw_data[0]
+	data.Name = raw_data[1]
+	data.Salary = raw_data[2]
+	di, _ := strconv.Atoi(raw_data[3])
+	data.Dept = di
+	data.DeptName = dm[di]
 	return data
 }
 
-func GenerateEmployeeMemoryData(d []byte) []Edata {
+func GenerateEmployeeMemoryData(d []byte, dm map[int]string) []Edata {
 	var temp []byte
 	var data []Edata
 	for _, bs := range d {
 		if string(bs) == "\n" {
-			dt := fillStruct(bs)
+			dt := fillStruct(temp, dm)
 			data := append(data, dt)
-			temp = 0
+			temp = temp[:0]
 		} else {
-			temp += bs
+			temp = append(temp, bs)
 		}
 	}
 	return data
