@@ -41,7 +41,7 @@ func GenerateEmployeeMemoryData(d []byte, dm map[int]string) []Edata {
 	for _, bs := range d {
 		if string(bs) == "\n" {
 			dt := fillStruct(temp, dm)
-			data := append(data, dt)
+			data = append(data, dt)
 			temp = temp[:0]
 		} else {
 			temp = append(temp, bs)
