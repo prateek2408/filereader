@@ -1,10 +1,10 @@
 package main
 
 import (
-	r "filereader/utils/readfile"
+	r "filereader/utils"
 	"fmt"
 )
 
 func main() {
-	fmt.Printf("%v\n", r.ReadAll("file.txt"))
+	fmt.Printf("%v\n", r.ReadAll("data/emp.data"))
 }
