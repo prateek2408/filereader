@@ -1,12 +1,16 @@
 package utils
 
-import "fmt"
+import (
+	"strconv"
+	"strings"
+)
 
-func GetDepartment(c []byte) {
-	for _, line := range c {
-		fmt.Print(string(line))
-		if string(line) == "\n" {
-			fmt.Println()
-		}
+func GetUniqueDepartments(d []string) map[int]string {
+	depMap := make(map[int]string, 0)
+	for _, line := range d {
+		cIndex := strings.Index(line, ",")
+		num, _ := strconv.Atoi(line[:cIndex])
+		depMap[num] = line[cIndex+1:]
 	}
+	return depMap
 }
